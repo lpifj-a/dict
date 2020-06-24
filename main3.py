@@ -90,9 +90,10 @@ def callback():
 # MessageEvent
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    q1 = event.message.text
 	line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=scrape(event.message.text))
+        TextSendMessage(text=scrape(q1))
      )
 
 if __name__ == "__main__":
