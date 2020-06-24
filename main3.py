@@ -97,7 +97,7 @@ def handle_message(event):
         q2 = change(q1)
         q3 = scrape(q2)
         count += 1
-        if(count > 100):
+        if(count > 10):
             q3 = 'みつかりませんでした'
             break
     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q3))
