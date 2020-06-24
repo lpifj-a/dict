@@ -69,7 +69,7 @@ def scrape(q):
     ans = []
     ans = strings[0].split("。")
     return ans[2]
-    
+
 @app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
@@ -92,7 +92,7 @@ def callback():
 def handle_message(event):
 	line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=sacrape(changeevent.message.text))
+        TextSendMessage(text=scrape(event.message.text))
      )
 
 if __name__ == "__main__":
