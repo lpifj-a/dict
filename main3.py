@@ -91,6 +91,15 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     q1 = event.message.text
+    q3 = 0
+    count = 0
+    while(q3==0):
+        q2 = change(q1)
+        q3 = scrape(q2)
+        count += 1
+        if(count > 100):
+            q3 = "みつかりませんでした。"
+            break
     line_bot_api.reply_message(event.reply_token,TextSendMessage(text=scrape(q1)))
 
 
