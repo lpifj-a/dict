@@ -11,7 +11,12 @@ from linebot.models import (
     FollowEvent, MessageEvent, TextMessage, TextSendMessage, ImageMessage, ImageSendMessage, TemplateSendMessage, ButtonsTemplate, PostbackTemplateAction, MessageTemplateAction, URITemplateAction
 )
 import os
-
+import random
+import requests
+import re
+from pykakasi import kakasi
+from bs4 import BeautifulSoup
+kakasi = kakasi()
 # 軽量なウェブアプリケーションフレームワーク:Flask
 app = Flask(__name__)
 
@@ -23,6 +28,27 @@ LINE_CHANNEL_SECRET = os.environ["LINE_CHANNEL_SECRET"]
 
 line_bot_api = LineBotApi(LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(LINE_CHANNEL_SECRET)
+
+def change(str):
+    a = ["あ","い","う","え","お","か","き","く","け","こ","さ","し","す","せ","そ","た","ち","つ","て","と","な","に","ぬ","ね","の","は","ひ","ふ","へ","ほ","ま","み","む","め","も","や","ゆ","よ","ら","り","る","れ","ろ","わ","お","ん"]
+
+    p = re.compile('[ァ-ン]+')
+    if p.fullmatch(str) != None:
+        kakasi.setMode("K","H")
+        conv = kakasi.getConverter()
+        str = conv.do(str)
+
+    p = re.compile(r'^[\u4E00-\u9FD0]+$')
+    if p.fullmatch(str) != None:
+        kakasi.setMode("J","H")
+        conv = kakasi.getConverter()
+        str = conv.do(str)
+
+    b = list(str)
+    i = random.randint(0,len(b)-1)
+    b[i] = random.choice(a)
+    s = ''.join(b)
+    return s
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -46,7 +72,7 @@ def callback():
 def handle_message(event):
 	line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=event.message.text)
+        TextSendMessage(change(text=event.message.text))
      )
 
 if __name__ == "__main__":
