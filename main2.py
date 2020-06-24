@@ -107,6 +107,6 @@ def handle_message(event):
         TextSendMessage(text=q3)
      )
 
-if __name__ == "__main__":
+if __name__ == "__main2__":
     port = int(os.getenv("PORT"))
     app.run(host="0.0.0.0", port=port)
