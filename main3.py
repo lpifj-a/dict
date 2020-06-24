@@ -91,10 +91,8 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     q1 = event.message.text
-	line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=scrape(q1))
-     )
+    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=scrape(q1)))
+
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT"))
