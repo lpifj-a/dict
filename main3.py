@@ -100,7 +100,7 @@ def handle_message(event):
         if(count > 100):
             q3 = "みつかりませんでした。"
             break
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=scrape(q1)))
+    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q3))
 
 
 if __name__ == "__main__":
