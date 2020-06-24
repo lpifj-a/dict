@@ -104,7 +104,7 @@ def handle_message(event):
             break
 	line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=q3)
+        TextSendMessage(text="hello")
      )
 
 if __name__ == "__main2__":
