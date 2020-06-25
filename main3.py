@@ -90,8 +90,8 @@ def callback():
 # MessageEvent
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    text = event.message.txt
-    if text == '辞書':
+    q1 = event.message.txt
+    if q1 == '辞書':
         buttons_template = ButtonsTemplate(
             title='My buttons sample', text='Hello, my buttons', actions=[
                 URIAction(label='Go to line.me', uri='https://line.me'),
@@ -102,7 +102,6 @@ def handle_message(event):
         template_message = TemplateSendMessage(alt_text='Buttons alt text', template=buttons_template)
         line_bot_api.reply_message(event.reply_token, template_message)
     else:
-        q1 = text
         q3 = 0
         count = 0
         while(q3==0):
