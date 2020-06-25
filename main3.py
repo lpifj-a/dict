@@ -107,12 +107,12 @@ def handle_message(event):
     if text == '辞書':
         buttons_template = ButtonsTemplate(
             title='日本語を調べます', text='好きな辞書をお選びください', actions=[
-                PostbackAction(label='普通の辞書',data='normal'),
-                PostbackAction(label='一定確率でふざける辞書',data='crazy')
+                PostbackAction(label='普通の辞書',data='normal',text="普通の辞書"),
+                PostbackAction(label='一定確率でふざける辞書',data='crazy',text="一定確率でふざける辞書")
             ])
         template_message = TemplateSendMessage(alt_text='Buttons alt text', template=buttons_template)
         line_bot_api.reply_message(event.reply_token, template_message)
-    else:
+    elif text=="一定確率でふざける辞書":
         q1 = text
         q3 = 0
         count = 0
@@ -129,14 +129,6 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q3))
 
 
-@handler.add(PostbackEvent)
-def handle_postback(event):
-    if event.postback.data == 'normal':
-        line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text="うーん"))
-    elif event.postback.data == 'crazy':
-        line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text="困ったな"))
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT"))
