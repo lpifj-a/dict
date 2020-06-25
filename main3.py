@@ -81,7 +81,7 @@ def scrape(q):
     #print(strings[0])
     ans = []
     ans = strings[0].split("。")
-    return ans[2]
+    return ans[2]+'('+ url +')'
 
 @app.route("/callback", methods=['POST'])
 def callback():
