@@ -92,7 +92,16 @@ def callback():
 def handle_message(event):
     text = event.message.text
     if text == '辞書':
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="hello"))
+        buttons_template = ButtonsTemplate(
+            title='My buttons sample', text='Hello, my buttons', actions=[
+                URIAction(label='Go to line.me', uri='https://line.me'),
+                PostbackAction(label='ping', data='ping'),
+                PostbackAction(label='ping with text', data='ping', text='ping'),
+                MessageAction(label='Translate Rice', text='米')
+            ])
+        template_message = TemplateSendMessage(
+            alt_text='Buttons alt text', template=buttons_template)
+        line_bot_api.reply_message(event.reply_token, template_message)
     else:
         q1 = text
         q3 = 0
