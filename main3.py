@@ -108,8 +108,7 @@ def handle_message(event):
         buttons_template = ButtonsTemplate(
             title='日本語を調べます', text='好きな辞書をお選びください', actions=[
                 PostbackAction(label='普通の辞書',data='x'),
-                PostbackAction(label='ふざける辞書',data='y')
-
+                PostbackAction(label='一定確率でふざける辞書',data='y')
             ])
         template_message = TemplateSendMessage(alt_text='Buttons alt text', template=buttons_template)
         line_bot_api.reply_message(event.reply_token, template_message)
