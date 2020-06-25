@@ -133,10 +133,10 @@ def handle_message(event):
 def handle_postback(event):
     if event.postback.data == 'normal':
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=event.message.text))
+            event.reply_token, TextSendMessage(text="うーん")
     elif event.postback.data == 'crazy':
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=q2))
+            event.reply_token, TextSendMessage(text="困ったな"))
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT"))
