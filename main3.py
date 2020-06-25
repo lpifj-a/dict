@@ -99,8 +99,7 @@ def handle_message(event):
                 PostbackAction(label='ping with text', data='ping', text='ping'),
                 MessageAction(label='Translate Rice', text='米')
             ])
-        template_message = TemplateSendMessage(
-            alt_text='Buttons alt text', template=buttons_template)
+        template_message = TemplateSendMessage(alt_text='Buttons alt text', template=buttons_template)
         line_bot_api.reply_message(event.reply_token, template_message)
     else:
         q1 = text
@@ -115,9 +114,8 @@ def handle_message(event):
                     q3 = scrape(q1)
                 else:
                     q3 = "わかりません"
-                    break
+                break
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q3))
-
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT"))
