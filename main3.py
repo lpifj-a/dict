@@ -33,8 +33,6 @@ kakasi = kakasi()
 # 軽量なウェブアプリケーションフレームワーク:Flask
 app = Flask(__name__)
 
-q1="未入力です"
-q2="未入力です"
 
 #環境変数からLINE Access Tokenを設定
 LINE_CHANNEL_ACCESS_TOKEN = os.environ["LINE_CHANNEL_ACCESS_TOKEN"]
@@ -135,7 +133,7 @@ def handle_message(event):
 def handle_postback(event):
     if event.postback.data == 'normal':
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=scrape(q1)))
+            event.reply_token, TextSendMessage(text=event.message.text))
     elif event.postback.data == 'crazy':
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(text=q2))
