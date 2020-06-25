@@ -90,7 +90,7 @@ def callback():
 # MessageEvent
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    text = event.message.txt
+    text = event.message.text
     if text == '辞書':
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text="hello"))
     else:
