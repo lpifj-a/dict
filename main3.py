@@ -102,21 +102,21 @@ def handle_message(event):
         template_message = TemplateSendMessage(
             alt_text='Buttons alt text', template=buttons_template)
         line_bot_api.reply_message(event.reply_token, template_message)
-    elif:    
-    q1 = text
-    q3 = 0
-    count = 0
-    while(q3==0):
-        q2 = change(q1)
-        q3 = scrape(q2)
-        count += 1
-        if(count > 10):
-            if(scrape(q1)):
-                q3 = scrape(q1)
-            else:
-                q3 = "わかりません"
-            break
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q3))
+    else:
+        q1 = text
+        q3 = 0
+        count = 0
+        while(q3==0):
+            q2 = change(q1)
+            q3 = scrape(q2)
+            count += 1
+            if(count > 10):
+                if(scrape(q1)):
+                    q3 = scrape(q1)
+                else:
+                    q3 = "わかりません"
+                    break
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q3))
 
 
 if __name__ == "__main__":
