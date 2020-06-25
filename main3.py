@@ -33,6 +33,8 @@ kakasi = kakasi()
 # 軽量なウェブアプリケーションフレームワーク:Flask
 app = Flask(__name__)
 
+q1="未入力です"
+q2="未入力です"
 
 #環境変数からLINE Access Tokenを設定
 LINE_CHANNEL_ACCESS_TOKEN = os.environ["LINE_CHANNEL_ACCESS_TOKEN"]
