@@ -113,6 +113,9 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=data+"(https://dictionary.goo.ne.jp/word/"+data+")"))
 
     elif text == "なんでやねん！":
+        file = open("data.txt","r")
+        data = file.read()
+        file.close()
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text="すみません"+data+"と間違えました"))
 
     else:
