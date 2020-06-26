@@ -130,6 +130,9 @@ def handle_message(event):
                 else:
                     q3 = "わかりません"
                 break
+        file = open("data.txt","w")
+        file.write(q2)
+        file.close()
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q3))
 
 
