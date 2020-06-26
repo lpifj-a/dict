@@ -105,16 +105,8 @@ def callback():
 def handle_message(event):
     global data
     text = event.message.text
-    if text == '辞書':
-        buttons_template = ButtonsTemplate(
-            title='日本語を調べます！', text='好きな辞書を選んでね', actions=[
-                PostbackAction(label='普通の辞書',data='normal'),
-                PostbackAction(label='一定確率でふざける辞書',data='crazy')
-            ])
-        template_message = TemplateSendMessage(alt_text='Buttons alt text', template=buttons_template)
-        line_bot_api.reply_message(event.reply_token, template_message)
 
-    elif text == "？":
+    if text == "？":
         file = open("data.txt","r")
         data = file.read()
         file.close()
@@ -132,7 +124,9 @@ def handle_message(event):
                     q3 = scrape(q1)
                 else:
                     q3 = "わかりません"
+                q2 = q1
                 break
+
         file = open("data.txt","w")
         file.write(q2)
         file.close()
