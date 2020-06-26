@@ -143,7 +143,7 @@ def handle_message(event):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label="詳細をみる",text="？" 
+                            action=MessageAction(label="詳細をみる",text="？")
                         ),
                     ])))
 
