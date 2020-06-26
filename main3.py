@@ -102,6 +102,7 @@ def callback():
 
 #入力保存
 data=[]
+data[0]="aaa"
 # MessageEvent
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
