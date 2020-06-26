@@ -136,10 +136,33 @@ def handle_message(event):
         file = open("data.txt","w")
         file.write(q2)
         file.close()
-        text_message = TextSendMessage(text= q3,
-                               quick_reply=QuickReply(items=[
-                                   QuickReplyButton(action=MessageAction(label="？", text="詳細"))
-                               ]))
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(
+                text= q3,
+                quick_reply=QuickReply(
+                    items=[
+                        QuickReplyButton(
+                            action=PostbackAction(label="label1", data="data1")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="label2", text="text2")
+                        ),
+                        QuickReplyButton(
+                            action=DatetimePickerAction(label="label3",
+                                                        data="data3",
+                                                        mode="date")
+                        ),
+                        QuickReplyButton(
+                            action=CameraAction(label="label4")
+                        ),
+                        QuickReplyButton(
+                            action=CameraRollAction(label="label5")
+                        ),
+                        QuickReplyButton(
+                            action=LocationAction(label="label6")
+                        ),
+                    ])))
 
 
 if __name__ == "__main__":
