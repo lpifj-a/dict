@@ -150,7 +150,7 @@ def handle_message(event):
                             action=MessageAction(label="詳細をみる",text="？")
                         ),
                         QuickReplyButton(
-                            action=PostbackAction(label="OK",text="？")
+                            action=PostbackAction(label="OK",data="OK")
                         ),
                     ])))
 
