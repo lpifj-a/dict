@@ -118,7 +118,7 @@ def handle_message(event):
         file = open("data.txt","r")
         data = file.read()
         file.close()
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=data))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=data+"(https://dictionary.goo.ne.jp/word/"+data+")"))
     else:
         q1 = text
         q3 = 0
@@ -143,7 +143,7 @@ def handle_message(event):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label="？", text=q2+"(https://dictionary.goo.ne.jp/word/"+q2+")")
+                            action=MessageAction(label="詳細をみる",text="？" 
                         ),
                     ])))
 
