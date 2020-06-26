@@ -136,7 +136,10 @@ def handle_message(event):
         file = open("data.txt","w")
         file.write(q2)
         file.close()
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q3))
+        text_message  =  TextSendMessage（text = 'q3'、
+                                quick_reply = QuickReply（items = [
+                                    QuickReplyButton（action = MessageAction（label = "？"、text = "意味"））
+                               ]））
 
 
 if __name__ == "__main__":
