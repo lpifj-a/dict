@@ -115,7 +115,10 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, template_message)
 
     elif text == "？":
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q2))
+        file = open("data.txt","r")
+        data = file.read()
+        file.close()
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=data))
     else:
         q1 = text
         q3 = 0
