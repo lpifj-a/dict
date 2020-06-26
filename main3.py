@@ -101,11 +101,12 @@ def callback():
     return 'OK'
 
 #入力保存
-data=[]
+data
 
 # MessageEvent
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
+    grobal data
     text = event.message.text
     if text == '辞書':
         buttons_template = ButtonsTemplate(
@@ -116,7 +117,7 @@ def handle_message(event):
         template_message = TemplateSendMessage(alt_text='Buttons alt text', template=buttons_template)
         line_bot_api.reply_message(event.reply_token, template_message)
     elif text == "？":
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=data[0]))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=data))
     else:
         q1 = text
         q3 = 0
@@ -131,7 +132,7 @@ def handle_message(event):
                 else:
                     q3 = "わかりません"
                 break
-        data[0] = q2        
+        data = q2        
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q3))
 
 
