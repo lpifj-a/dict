@@ -126,7 +126,6 @@ def handle_message(event):
                 else:
                     q3 = "わかりません"
                 break
-        handle_message(event)
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q3))
 
 
