@@ -115,8 +115,9 @@ def handle_message(event):
             ])
         template_message = TemplateSendMessage(alt_text='Buttons alt text', template=buttons_template)
         line_bot_api.reply_message(event.reply_token, template_message)
+
     elif text == "？":
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=data[0]))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="a"))
     else:
         q1 = text
         q3 = 0
