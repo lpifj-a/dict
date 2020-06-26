@@ -149,8 +149,16 @@ def handle_message(event):
                         QuickReplyButton(
                             action=MessageAction(label="詳細をみる",text="？")
                         ),
+                        QuickReplyButton(
+                            action=PostbackAction(label="OK",text="？")
+                        ),
                     ])))
 
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    if event.postback.data == 'OK':
+        line_bot_api.reply_message(
+            event.reply_token, TextSendMessage(text="調べたい言葉を入力して下さい"))
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT"))
