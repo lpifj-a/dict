@@ -127,8 +127,7 @@ def handle_message(event):
                     q3 = "わかりません"
                 break
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q3))
-
-    line_bot_api.reply_message(event.reply_token,TextSendMessage(text="ありがとう"))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="ありがとう"))
 
 
 if __name__ == "__main__":
