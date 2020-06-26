@@ -136,10 +136,10 @@ def handle_message(event):
         file = open("data.txt","w")
         file.write(q2)
         file.close()
-        text_message  =  TextSendMessage（text = 'q3'、
-                                quick_reply = QuickReply（items = [
-                                    QuickReplyButton（action = MessageAction（label = "？"、text = "意味"））
-                               ]））
+        text_message = TextSendMessage(text= q3,
+                               quick_reply=QuickReply(items=[
+                                   QuickReplyButton(action=MessageAction(label="？", text="詳細"))
+                               ]))
 
 
 if __name__ == "__main__":
