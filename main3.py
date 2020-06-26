@@ -107,7 +107,7 @@ def handle_message(event):
     text = event.message.text
     if text == '辞書':
         buttons_template = ButtonsTemplate(
-            title='日本語を調べます', text='好きな辞書をお選びください', actions=[
+            title='日本語を調べます', text='好きな辞書を選んでね！', actions=[
                 PostbackAction(label='普通の辞書',data='normal'),
                 PostbackAction(label='一定確率でふざける辞書',data='crazy')
             ])
