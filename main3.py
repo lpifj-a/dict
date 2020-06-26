@@ -116,20 +116,19 @@ def handle_message(event):
         file = open("data.txt","r")
         data = file.read()
         file.close()
-        TextSendMessage(
-            text = "すみません、「"+data+"」と間違えました",
-            quick_reply=QuickReply(
-                items=[
-                    QuickReplyButton(
-                        action=MessageAction(label="なんでやねん！",text="なんでやねん！")
-                    ),
-                    QuickReplyButton(
-                        action=MessageAction(label="詳細をみる",text="？")
-                    ),
-                    QuickReplyButton(
-                        action=PostbackAction(label="OK",data="OK")
-                    ),
-                ]))
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(
+                text = "すみません、「"+data+"」と間違えました",
+                quick_reply=QuickReply(
+                    items=[
+                        QuickReplyButton(
+                            action=MessageAction(label="詳細をみる",text="？")
+                        ),
+                        QuickReplyButton(
+                            action=PostbackAction(label="OK",data="OK")
+                        ),
+                    ])))
     else:
         q1 = text
         q3 = 0
