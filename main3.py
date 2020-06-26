@@ -116,7 +116,7 @@ def handle_message(event):
         file = open("data.txt","r")
         data = file.read()
         file.close()
-        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="すみません"+data+"と間違えました"))
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text="すみません。「"+data+"」と間違えました。"))
 
     else:
         q1 = text
