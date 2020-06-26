@@ -111,6 +111,10 @@ def handle_message(event):
         data = file.read()
         file.close()
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=data+"(https://dictionary.goo.ne.jp/word/"+data+")"))
+
+    elif text == "なんでやねん":
+        line_bot_api.reply_message(event.reply_token,TextSendMessage(text=data+"を調べてしまいました"))
+
     else:
         q1 = text
         q3 = 0
@@ -138,6 +142,9 @@ def handle_message(event):
                     items=[
                         QuickReplyButton(
                             action=MessageAction(label="詳細をみる",text="？")
+                        ),
+                        QuickReplyButton(
+                            action=MessageAction(label="なんでやねん！",text="なんでやねん！")
                         ),
                     ])))
 
