@@ -106,7 +106,7 @@ data
 # MessageEvent
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    grobal data
+    global data
     text = event.message.text
     if text == '辞書':
         buttons_template = ButtonsTemplate(
@@ -132,7 +132,7 @@ def handle_message(event):
                 else:
                     q3 = "わかりません"
                 break
-        data = q2        
+        data = q2
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=q3))
 
 
