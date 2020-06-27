@@ -190,9 +190,6 @@ def handle_follow(event):
     line_bot_api.reply_message(
         event.reply_token, TextSendMessage(text='まあまあふざける辞書です。てきとうな言葉を入力して遊んでみてください。'))
 
-@handler.add(UnfollowEvent)
-def handle_unfollow(event):
-    app.logger.info("Got Unfollow event:" + event.source.user_id)
 
 
 if __name__ == "__main__":
