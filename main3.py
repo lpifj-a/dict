@@ -80,7 +80,7 @@ def scrape(q):
             strings.append(inf)
     #print(strings[0])
     ans = []
-    ans = strings[0].split("。")
+    ans = re.split("[。,-]",strrings[0])
     return ans[2]
 
 @app.route("/callback", methods=['POST'])
@@ -188,7 +188,7 @@ def handle_postback(event):
 def handle_follow(event):
     app.logger.info("Got Follow event:" + event.source.user_id)
     line_bot_api.reply_message(
-        event.reply_token, TextSendMessage(text='入力された単語を調べます。（ただし辞書は、まあまあふざけます）'))
+        event.reply_token, TextSendMessage(text='まあまあふざける辞書です。てきとうな言葉を入力して遊んでみてください'))
 
 
 @handler.add(UnfollowEvent)
