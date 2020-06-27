@@ -184,11 +184,11 @@ def handle_postback(event):
                         ),
                     ])))
 
-@handler.add(FollowEvent)
-def handle_follow(event):
-    app.logger.info("Got Follow event:" + event.source.user_id)
-    line_bot_api.reply_message(
-        event.reply_token, TextSendMessage(text='まあまあふざける辞書です。てきとうな言葉を入力して遊んでみてください。'))
+#@handler.add(FollowEvent)
+#def handle_follow(event):
+    #app.logger.info("Got Follow event:" + event.source.user_id)
+    #line_bot_api.reply_message(
+        #event.reply_token, TextSendMessage(text='まあまあふざける辞書です。てきとうな言葉を入力して遊んでみてください。'))
 
 
 
