@@ -175,7 +175,15 @@ def handle_postback(event):
         data = file.read()
         file.close()
         line_bot_api.reply_message(
-            event.reply_token, TextSendMessage(text=data+"(https://dictionary.goo.ne.jp/word/"+data+")"))
+            event.reply_token,
+            TextSendMessage(
+                text = data+"(https://dictionary.goo.ne.jp/word/"+data+")",
+                quick_reply=QuickReply(
+                    items=[
+                        QuickReplyButton(
+                            action=PostbackAction(label="OK",data="OK")
+                        ),
+                    ])))
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT"))
