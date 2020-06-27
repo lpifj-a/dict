@@ -129,7 +129,7 @@ def handle_message(event):
                             action=PostbackAction(label="OK",data="OK")
                         ),
                     ])))
-    else:
+    else :
         q1 = text
         q3 = 0
         count = 0
@@ -169,7 +169,7 @@ def handle_postback(event):
     if event.postback.data == 'OK':
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(text="調べたい言葉を入力して下さい"))
-    if event.postback.data == '詳しく':
+    elif event.postback.data == '詳しく':
         file = open("data.txt","r")
         data = file.read()
         file.close()
