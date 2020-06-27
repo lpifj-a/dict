@@ -123,7 +123,7 @@ def handle_message(event):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=PostbackAction(label="詳しく",text="詳しく")
+                            action=PostbackAction(label="詳しく",data="詳しく")
                         ),
                         QuickReplyButton(
                             action=PostbackAction(label="OK",data="OK")
@@ -144,7 +144,6 @@ def handle_message(event):
                     q3 = "わかりません"
                 q2 = q1
                 break
-
         file = open("data.txt","w")
         file.write(q2)
         file.close()
