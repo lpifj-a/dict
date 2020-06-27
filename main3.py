@@ -154,7 +154,7 @@ def handle_message(event):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label="なんでやねん！",text="なんでやねん!")
+                            action=MessageAction(label="なんでやねん！",text="なんでやねん！")
                         ),
                         QuickReplyButton(
                             action=PostbackAction(label="詳しく",data="詳しく")
