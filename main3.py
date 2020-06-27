@@ -184,6 +184,18 @@ def handle_postback(event):
                         ),
                     ])))
 
+@handler.add(FollowEvent)
+def handle_follow(event):
+    app.logger.info("Got Follow event:" + event.source.user_id)
+    line_bot_api.reply_message(
+        event.reply_token, TextSendMessage(text='入力された単語を調べます。（ただし辞書は、まあまあふざけます）'))
+
+
+@handler.add(UnfollowEvent)
+def handle_unfollow(event):
+    app.logger.info("Got Unfollow event:" + event.source.user_id)
+
+
 if __name__ == "__main__":
     port = int(os.getenv("PORT"))
     app.run(host="0.0.0.0", port=port)
