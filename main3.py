@@ -123,7 +123,7 @@ def handle_message(event):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label="詳細をみる",text="？")
+                            action=PostbackAction(label="詳しく",text="詳しく")
                         ),
                         QuickReplyButton(
                             action=PostbackAction(label="OK",data="OK")
@@ -158,7 +158,7 @@ def handle_message(event):
                             action=MessageAction(label="なんでやねん！",text="なんでやねん！")
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label="詳細をみる",text="？")
+                            action=PostbackAction(label="詳しく",data="詳しく")
                         ),
                         QuickReplyButton(
                             action=PostbackAction(label="OK",data="OK")
@@ -170,6 +170,12 @@ def handle_postback(event):
     if event.postback.data == 'OK':
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(text="調べたい言葉を入力して下さい"))
+    if event.postback.data == '詳しく':
+        file = open("data.txt","r")
+        data = file.read()
+        file.close()
+        line_bot_api.reply_message(
+            event.reply_token, TextSendMessage(text=data+"(https://dictionary.goo.ne.jp/word/"+data+")"))
 
 if __name__ == "__main__":
     port = int(os.getenv("PORT"))
