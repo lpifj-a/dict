@@ -80,7 +80,7 @@ def scrape(q):
             strings.append(inf)
     #print(strings[0])
     ans = []
-    ans = re.split("[。,-]",strrings[0])
+    ans = re.split("[。,-]",strings[0])
     return ans[2]
 
 @app.route("/callback", methods=['POST'])
