@@ -107,13 +107,13 @@ def handle_message(event):
     text = event.message.text
 
     if text == "？":
-        file = open("data.txt","r")
+        file = open("data2.txt","r")
         data = file.read()
         file.close()
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=data+"(https://dictionary.goo.ne.jp/word/"+data+")"))
 
     elif text == "なんでやねん！":
-        file = open("data.txt","r")
+        file = open("data2.txt","r")
         data = file.read()
         file.close()
         line_bot_api.reply_message(
@@ -144,7 +144,7 @@ def handle_message(event):
                     q3 = "わかりません"
                 q2 = q1
                 break
-        file = open("data.txt","w")
+        file = open("data2.txt","w")
         file.write(q2)
         file.close()
         line_bot_api.reply_message(
@@ -170,7 +170,7 @@ def handle_postback(event):
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(text="調べたい言葉を入力して下さい"))
     elif event.postback.data == '詳しく':
-        file = open("data.txt","r")
+        file = open("data2.txt","r")
         data = file.read()
         file.close()
         line_bot_api.reply_message(
