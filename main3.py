@@ -106,7 +106,7 @@ def handle_message(event):
     text = event.message.text
 
     if text == "？":
-        file = open(+"data.txt","r")
+        file = open("data.txt","r")
         data = file.read()
         file.close()
         line_bot_api.reply_message(event.reply_token,TextSendMessage(text=data+"(https://dictionary.goo.ne.jp/word/"+data+")"))
