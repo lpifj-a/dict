@@ -199,7 +199,7 @@ def handle_postback(event):
 def handle_follow(event):
     app.logger.info("Got Follow event:" + event.source.user_id)
     line_bot_api.reply_message(
-        event.reply_token, TextSendMessage(text='まあまあふざける辞書です。てきとうな言葉を入力して遊んでみてください。'))
+        event.reply_token, TextSendMessage(text='まあまあふざける辞書です。てきとうな言葉を入力して遊んでみてください。(※調べるのに時間がかかる事があります。1分以上反応がないときは何度か送信してみてください)'))
 
 
 
