@@ -30,7 +30,7 @@ import re
 from pykakasi import kakasi
 from bs4 import BeautifulSoup
 kakasi = kakasi()
-# 軽量なウェブアプリケーションフレームワーク:Flask
+
 app = Flask(__name__)
 
 
